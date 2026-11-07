@@ -316,7 +316,7 @@ SQLite是一个不错的选择，因为它是一个轻量级的基于文件的�
     <img src="./images/erasure-coding-across-failure-domains.png" alt="erasure-coding-across-failure-domains" width="500" />
 </div>
 
-纠删码使我们能够实现低得多的存储成本（提升50%），代价是访问速度，因为数据路由服务必须从多个位置收集数据：
+纠删码使我们能够实现低得多的存储成本（约降低50%），代价是访问速度，因为数据路由服务必须从多个位置收集数据：
 
 <div style="margin-left:3rem">
     <img src="./images/erasure-coding-vs-replication.png" alt="erasure-coding-vs-replication" width="500" />
@@ -325,7 +325,7 @@ SQLite是一个不错的选择，因为它是一个轻量级的基于文件的�
 其他注意事项：
 - 复制需要200%的存储开销（在3副本情况下），而纠删码为50%
 - 纠删码[能带来11个九的持久性](https://github.com/Backblaze/erasure-coding-durability)，而复制只有6个九
-- 纠删码需要更多计算来算出并存储校验数据
+- 纠删码需要更多计算来生成和存储校验块
 
 总之，复制对延迟敏感的应用更有用，而纠删码在存储成本效率和持久性方面更有吸引力。
 纠删码的实现难度也大得多。
@@ -444,4 +444,4 @@ SELECT * FROM object WHERE bucket_id = "123" AND object_name LIKE `abc/%`
 - 设计一个类S3的对象存储
 - 比较对象存储、块存储和文件存储之间的差异
 - 涵盖了桶中对象的上传、下载、列出和版本控制
-- 深入探讨了设计——数据存储和元数据存储、复制和纠删码、分片上传、分片
+- 深入探讨了设计——数据存储和元数据存储、复制和纠删码、分片上传（multipart upload）、分片（sharding）
