@@ -43,7 +43,7 @@ We are going to design a **leaderboard** for an online mobile game:
 
 ### **Back-of-the-envelope estimation**
 
-With 50mil DAU, if the game has an even distribution of players during a 24h period, we'd have an average of 50 users per second.
+With 5mil DAU, if the game has an even distribution of players during a 24h period, we'd have an average of 50 users per second.
 However, since distribution is typically uneven, we can estimate that the peak online users would be 250 users per second.
 
 QPS for users scoring a point - given 10 games per day on average, 50 users/s * 10 = 500 QPS. Peak QPS = 2500.
@@ -339,7 +339,7 @@ Author recommends going with this approach if we build the game from the ground 
 
 With 5mil DAU, we can get away with a single Redis instance from both a storage and QPS perspective.
 
-However, if we imagine userbase grows 10x to 500mil DAU, then we'd need 65gb for storage and QPS goes to 250k.
+However, if we imagine userbase grows 10x to 50mil DAU, then we'd need 6.5gb for storage and QPS goes to 25k.
 
 Such scale would require sharding.
 
